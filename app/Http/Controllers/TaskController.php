@@ -19,6 +19,10 @@ class TaskController extends Controller
 
         $tasks = Task::where('id','<',30)->get();
 
+        $tasks = Task::where('id','<=',30)->where('id','>=',20)->get();
+
+        $tasks = Task::whereBetween('id',[20,30])->get();
+
         dd($tasks);
     }
     //
