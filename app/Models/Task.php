@@ -20,4 +20,14 @@ class Task extends Model
     protected $guarded = ['guarded'];
 
     protected $fillable = ['fillable'];
+
+    /**
+     * Get the user that owns the Task
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }
